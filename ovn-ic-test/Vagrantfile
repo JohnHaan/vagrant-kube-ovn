@@ -1,0 +1,32 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+## configuration variables ##
+# max number of worker nodes
+N = 2
+# each of components to install
+VM_IP = '192.168.1.11'                 # if ip have a issue, it changed. 
+## /configuration variables ##
+
+Vagrant.configure("2") do |config|
+
+  #======================#
+  # OVN Cluster Test ENV #
+  #======================#
+
+  (1..N).each do |i|
+    config.vm.define "ovn-aio-#{i}" do |cfg|
+      cfg.vm.box = "bento/ubuntu-22.04-arm64"
+      cfg.vm.provider "vmware_desktop" do |vb|
+        vb.gui = true
+        vb.cpus = 1
+        vb.memory = 2048
+      end
+      cfg.vm.host_name = "ovn-aio-#{i}"
+      cfg.vm.network "private_network", ip: "192.168.1.11#{i}"
+      cfg.vm.network "forwarded_port", guest: 22, host: "6002#{i}", auto_correct: true, id: "ssh"
+      cfg.vm.synced_folder "../data", "/vagrant", disabled: true
+      cfg.vm.provision "shell", path: "pre.sh"
+    end
+  end
+end

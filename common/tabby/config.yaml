@@ -46,7 +46,7 @@ profiles:
       forwardedPorts: []
       scripts: []
     weight: -1
-    name: ovn-1
+    name: ovn-cluster-1
     group: OVN TEST ENV
     color: '#23a1e0'
     id: ssh:custom:ovn-cluster:0b16cf0c-bf56-47ca-b2ea-b6abbdb1223c
@@ -96,7 +96,7 @@ profiles:
       forwardedPorts: []
       scripts: []
     weight: -1
-    name: ovn-2
+    name: ovn-cluster-2
     group: OVN TEST ENV
     color: '#23a1e0'
     id: ssh:custom:ovn-cluster:0b16cf0c-bf56-47ca-b2ea-b6abbdb1223c
@@ -146,8 +146,108 @@ profiles:
       forwardedPorts: []
       scripts: []
     weight: -1
-    name: ovn-3
+    name: ovn-cluster-3
     group: OVN TEST ENV
+    color: '#23a1e0'
+    id: ssh:custom:ovn-cluster:0b16cf0c-bf56-47ca-b2ea-b6abbdb1223c
+  - type: ssh
+    icon: fas fa-desktop
+    options:
+      host: 127.0.0.1
+      port: 60021
+      algorithms:
+        hmac:
+          - hmac-sha1
+          - hmac-sha1-etm@openssh.com
+          - hmac-sha2-256
+          - hmac-sha2-256-etm@openssh.com
+          - hmac-sha2-512
+          - hmac-sha2-512-etm@openssh.com
+        kex:
+          - curve25519-sha256
+          - curve25519-sha256@libssh.org
+          - diffie-hellman-group-exchange-sha256
+          - diffie-hellman-group14-sha256
+          - diffie-hellman-group15-sha512
+          - diffie-hellman-group16-sha512
+          - diffie-hellman-group17-sha512
+          - diffie-hellman-group18-sha512
+          - ecdh-sha2-nistp256
+          - ecdh-sha2-nistp384
+          - ecdh-sha2-nistp521
+        cipher:
+          - aes128-ctr
+          - aes128-gcm
+          - aes128-gcm@openssh.com
+          - aes192-ctr
+          - aes256-ctr
+          - aes256-gcm
+          - aes256-gcm@openssh.com
+        serverHostKey:
+          - ecdsa-sha2-nistp256
+          - ecdsa-sha2-nistp384
+          - ecdsa-sha2-nistp521
+          - rsa-sha2-256
+          - rsa-sha2-512
+          - ssh-ed25519
+          - ssh-rsa
+      auth: password
+      privateKeys: []
+      forwardedPorts: []
+      scripts: []
+    weight: -1
+    name: ovn-aio-1
+    group: OVN IC ENV
+    color: '#23a1e0'
+    id: ssh:custom:ovn-cluster:0b16cf0c-bf56-47ca-b2ea-b6abbdb1223c
+  - type: ssh
+    icon: fas fa-desktop
+    options:
+      host: 127.0.0.1
+      port: 60022
+      algorithms:
+        hmac:
+          - hmac-sha1
+          - hmac-sha1-etm@openssh.com
+          - hmac-sha2-256
+          - hmac-sha2-256-etm@openssh.com
+          - hmac-sha2-512
+          - hmac-sha2-512-etm@openssh.com
+        kex:
+          - curve25519-sha256
+          - curve25519-sha256@libssh.org
+          - diffie-hellman-group-exchange-sha256
+          - diffie-hellman-group14-sha256
+          - diffie-hellman-group15-sha512
+          - diffie-hellman-group16-sha512
+          - diffie-hellman-group17-sha512
+          - diffie-hellman-group18-sha512
+          - ecdh-sha2-nistp256
+          - ecdh-sha2-nistp384
+          - ecdh-sha2-nistp521
+        cipher:
+          - aes128-ctr
+          - aes128-gcm
+          - aes128-gcm@openssh.com
+          - aes192-ctr
+          - aes256-ctr
+          - aes256-gcm
+          - aes256-gcm@openssh.com
+        serverHostKey:
+          - ecdsa-sha2-nistp256
+          - ecdsa-sha2-nistp384
+          - ecdsa-sha2-nistp521
+          - rsa-sha2-256
+          - rsa-sha2-512
+          - ssh-ed25519
+          - ssh-rsa
+      auth: password
+      privateKeys: []
+      forwardedPorts: []
+      scripts: []
+    weight: -1
+    name: ovn-aio-2
+    group: OVN IC ENV
     color: '#23a1e0'
     id: ssh:custom:ovn-cluster:0b16cf0c-bf56-47ca-b2ea-b6abbdb1223c
 hotkeys:
