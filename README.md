@@ -11,13 +11,22 @@ OVN 테스트환경 구성 Repository
 
 ### VNET 구성
 아래의 명령어를 통해 가상머신에 할당할 네트워크를 생성합니다.
+
+```bash
 sh ./vagrant-kube-ovn/common/vf_net_create_vnet2.sh
+```
 
 ### tabby 설정
 아래의 명령어를 통해 tabby 터미널 설정파일을 복사합니다.
+
+```bash
 cd ./vagrant-kube-ovn/common/tabby/
 cp ./vagrant-kube-ovn/config.yaml ~/Library/Application\ Support/tabby
+```
 
 ## ovn cluster 테스트 환경 구성
+
+```bash
 cd ./vagrant-kube-ovn/ovn-cluster
 vagrant up
+```
